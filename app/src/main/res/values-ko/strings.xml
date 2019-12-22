@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">전화</string>
+    <string name="dial">다이얼 패드</string>
+    <string name="contacts">연락처</string>
+    <string name="settings">설정</string>
+    <string name="log">통화 기록</string>
+    <string name="backspace">뒤로가기</string>
+    <string name="call">걸기</string>
+</resources>
