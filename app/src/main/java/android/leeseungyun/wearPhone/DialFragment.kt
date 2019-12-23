@@ -15,6 +15,4 @@ class DialFragment : Fragment() {
 
         return inflater.inflate(R.layout.fragment_dial, container, false)
     }
-
-
 }

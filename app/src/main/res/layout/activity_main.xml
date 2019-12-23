@@ -3,21 +3,24 @@
 <androidx.wear.widget.drawer.WearableDrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:deviceIds="wear">
 
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
     <androidx.wear.widget.drawer.WearableNavigationDrawerView
         android:id="@+id/top_navigation_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:navigationStyle="multiPage"
-        />
+        app:navigationStyle="singlePage" />
 <!--    <androidx.wear.widget.drawer.WearableActionDrawerView-->
 <!--        android:id="@+id/bottom_action_drawer"-->
 <!--        android:layout_width="match_parent"-->

@@ -7,4 +7,5 @@
     <string name="log">통화 기록</string>
     <string name="backspace">뒤로가기</string>
     <string name="call">걸기</string>
+    <string name="personImage">사진</string>
 </resources>

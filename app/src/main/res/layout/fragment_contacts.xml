@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<ScrollView
+<androidx.wear.widget.WearableRecyclerView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/content"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contact_recycler"
     android:layout_height="match_parent"
-    android:nestedScrollingEnabled="true"
-    >
-
-</ScrollView>
+    android:layout_width="match_parent"
+    android:scrollbars="vertical"
+    tools:deviceIds="wear" />
