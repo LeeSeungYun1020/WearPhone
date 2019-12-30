@@ -8,4 +8,12 @@
     <string name="backspace">뒤로가기</string>
     <string name="call">걸기</string>
     <string name="personImage">사진</string>
+    <string name="permissionContactsDescription">연락처 표시를 위해 권한을 요청합니다.</string>
+    <string name="permissionCallLogDescription">통화 기록 표시를 위해 권한을 요청합니다.</string>
+    <string name="permissionDenied">권한이 거부되었습니다.</string>
+    <string name="am">오전</string>
+    <string name="pm">오후</string>
+    <string name="notSaved">저장되지 않음.</string>
+    <string name="unknown">알 수 없음</string>
+    <string name="check">확인</string>
 </resources>

@@ -9,31 +9,33 @@
 
     <ImageView
         android:id="@+id/recycler_log_image"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_marginStart="4dp"
+        android:contentDescription="@string/personImage"
+        android:src="@drawable/ic_person_white_24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/recycler_log_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="name"
+        android:layout_marginStart="4dp"
+        android:hint="name"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/recycler_log_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/recycler_log_number"
+        android:id="@+id/recycler_log_status_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="010-0000-0000"
-        android:textSize="10sp"
+        android:layout_marginStart="4dp"
+        android:hint="오후 11:45"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/recycler_log_image"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recycler_log_name" />
 
     <ImageView
@@ -46,14 +48,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/recycler_log_status_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/recycler_log_number"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:text="오후 11:45"
-        android:textSize="6sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="010-0000-0000"
+        android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recycler_log_status_image" />
 
 

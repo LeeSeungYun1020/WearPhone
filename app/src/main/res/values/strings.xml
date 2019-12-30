@@ -7,5 +7,15 @@
     <string name="backspace">Backspace</string>
     <string name="call">Call</string>
     <string name="title_activity_contact_information" translatable="false">ContactInformationActivity</string>
-    <string name="personImage">img</string>
+    <string name="personImage">Img</string>
+    <string name="notAvailable" translatable="false">N/A</string>
+    <string name="permissionContactsDescription">Request permission to show contacts.</string>
+    <string name="title_activity_permission" translatable="false">PermissionActivity</string>
+    <string name="permissionDenied">Permission is denied</string>
+    <string name="permissionCallLogDescription">Request permission to show call log.</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+    <string name="notSaved">Not Saved.</string>
+    <string name="unknown">Unknown</string>
+    <string name="check">Check</string>
 </resources>

@@ -12,7 +12,6 @@ class DialFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_dial, container, false)
     }
 }
