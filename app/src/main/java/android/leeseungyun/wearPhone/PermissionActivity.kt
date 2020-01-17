@@ -12,6 +12,7 @@ const val PERMISSION_CODE = "code"
 const val PERMISSION_CODE_ERROR = 3400
 const val PERMISSION_CODE_READ_CALLLOG = 3401
 const val PERMISSION_CODE_READ_CONTACTS = 3402
+const val PERMISSION_CODE_CALL_PHONE = 3403
 
 class PermissionActivity : WearableActivity() {
 
@@ -23,6 +24,7 @@ class PermissionActivity : WearableActivity() {
         val permission = when (permissionCode) {
             PERMISSION_CODE_READ_CALLLOG -> Manifest.permission.READ_CALL_LOG
             PERMISSION_CODE_READ_CONTACTS -> Manifest.permission.READ_CONTACTS
+            PERMISSION_CODE_CALL_PHONE -> Manifest.permission.CALL_PHONE
             PERMISSION_CODE_ERROR -> throw UnexpectedException(
                 "PermissionActivity",
                 "Extra(Permission code) isn't exist"
@@ -35,6 +37,7 @@ class PermissionActivity : WearableActivity() {
         permission_activity_text.text = when (permissionCode) {
             PERMISSION_CODE_READ_CALLLOG -> getString(R.string.permissionCallLogDescription)
             PERMISSION_CODE_READ_CONTACTS -> getString(R.string.permissionContactsDescription)
+            PERMISSION_CODE_CALL_PHONE -> getString(R.string.permissionCallDescription)
             else -> throw PassException() // Already checked other possibility
         }
 
@@ -54,7 +57,9 @@ class PermissionActivity : WearableActivity() {
         grantResults: IntArray
     ) {
         when (requestCode) {
-            PERMISSION_CODE_READ_CONTACTS, PERMISSION_CODE_READ_CALLLOG -> {
+            PERMISSION_CODE_READ_CONTACTS,
+            PERMISSION_CODE_READ_CALLLOG,
+            PERMISSION_CODE_CALL_PHONE -> {
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     setResult(Activity.RESULT_OK)
                 } else {

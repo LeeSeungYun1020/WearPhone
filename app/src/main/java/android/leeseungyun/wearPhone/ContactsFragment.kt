@@ -2,6 +2,7 @@ package android.leeseungyun.wearPhone
 
 import android.app.Fragment
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -21,8 +22,7 @@ class ContactsFragment : Fragment() {
         super.onAttach(context)
         val projection = arrayOf(
             ContactsContract.Contacts._ID,
-            ContactsContract.Contacts.DISPLAY_NAME,
-            ContactsContract.Contacts.LOOKUP_KEY
+            ContactsContract.Contacts.DISPLAY_NAME
         )
         val cursor = context?.contentResolver?.query(
             ContactsContract.Contacts.CONTENT_URI,
@@ -46,26 +46,27 @@ class ContactsFragment : Fragment() {
                 null,
                 null
             ) ?: throw CursorException("ContactsFragment", "Contacts Detail")
-            var number: String = getString(R.string.notAvailable)
-            var imageUriString: String? = null
 
             if (detailCursor.moveToNext()) {
-                number =
+                val number =
                     detailCursor.getString(detailCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
-                imageUriString =
-                    detailCursor.getString(detailCursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.PHOTO_THUMBNAIL_URI))
-            }
-            val imageURI = if (imageUriString != null)
-                Uri.parse(imageUriString)
-            else null
+                        ?: getString(R.string.notAvailable)
+                val imageUriString =
+                    detailCursor.getString(detailCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_THUMBNAIL_URI))
 
-            contactsList.add(
-                ContactsItem(
-                    name = name,
-                    number = number,
-                    imageURI = imageURI
+                val imageURI = if (imageUriString != null)
+                    Uri.parse(imageUriString)
+                else null
+
+                contactsList.add(
+                    ContactsItem(
+                        id = id,
+                        name = name,
+                        number = number,
+                        imageURI = imageURI
+                    )
                 )
-            )
+            }
             detailCursor.close()
         }
         cursor.close()
@@ -86,11 +87,13 @@ class ContactsFragment : Fragment() {
     }
 }
 
-data class ContactsItem(val name: String, val number: String, val imageURI: Uri?)
+data class ContactsItem(val id: Long, val name: String, val number: String, val imageURI: Uri?)
 
 private class ContactsAdapter(val items: List<ContactsItem>) :
     RecyclerView.Adapter<ContactsViewHolder>() {
+    private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
+        context = parent.context
         return ContactsViewHolder(
             LayoutInflater
                 .from(parent.context)
@@ -107,6 +110,16 @@ private class ContactsAdapter(val items: List<ContactsItem>) :
             holder.imageView.setImageURI(items[position].imageURI)
         else
             holder.imageView.setImageResource(R.drawable.ic_person_white_24dp)
+
+        holder.mainView.setOnClickListener {
+            context.startActivity(
+                Intent(
+                    context,
+                    ContactsInformationActivity::class.java
+                )
+                    .putExtra(ContactsInformationActivity.EXTRA_ID, items[position].id)
+            )
+        }
     }
 
 }
@@ -115,4 +128,5 @@ class ContactsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val imageView: ImageView = itemView.findViewById(R.id.recycler_contact_image)
     val nameView: TextView = itemView.findViewById(R.id.recycler_contact_name)
     val numberView: TextView = itemView.findViewById(R.id.recycler_contact_number)
+    val mainView: View = itemView.findViewById(R.id.recycler_contact_main)
 }

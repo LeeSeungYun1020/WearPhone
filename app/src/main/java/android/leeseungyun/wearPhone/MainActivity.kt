@@ -138,7 +138,7 @@ class MainActivity : WearableActivity() {
     }
 
     class MainNavigationAdapter(private val context: Context) :
-        WearableNavigationDrawerView.WearableNavigationDrawerAdapter(){
+        WearableNavigationDrawerView.WearableNavigationDrawerAdapter() {
         override fun getItemText(pos: Int): CharSequence? {
             return context.getString(mainNavigationItems[pos].titleID)
         }

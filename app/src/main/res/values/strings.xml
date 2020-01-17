@@ -18,4 +18,9 @@
     <string name="notSaved">Not Saved.</string>
     <string name="unknown">Unknown</string>
     <string name="check">Check</string>
+    <string name="permissionCallDescription">Request permission to call.</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="emptyLog">No call log.</string>
+    <string name="noSuitable">No suitable application.</string>
 </resources>
